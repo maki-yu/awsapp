@@ -1,0 +1,12 @@
+<%= form_with model: blog, local:true do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: 'blog_title' %>
+  </div>
+  <div class="field">
+    <%= f.label :article %>
+    <%= f.text_area :article, id: 'blog_article' %>
+  </div>
+  <div>
+    <%= f.submit %>
+<% end %>

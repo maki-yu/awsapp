@@ -1,0 +1,19 @@
+<h1>ブログ記事一覧</h1>
+<%= link_to("新規登録", new_blog_path) %>
+
+<table>
+  <tr>
+    <th><%= Blog.human_attribute_name(:title) %></th>
+    <th><%= Blog.human_attribute_name(:created_at) %></th>
+    <th></th>
+  </tr>
+
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= link_to(blog.title, blog) %></td>
+      <td><%= blog.created_at %></td>
+      <td><%= link_to('編集', edit_blog_path(blog)) %><%= link_to('削除', blog, method: :delete, data: { confirm: "ブログ「#{blog.title}」を削除します。よろしいですか？" }) %></td>
+    </tr>
+  <% end %>
+</table>
+<p>Find me in app/views/blogs/index.html.erb</p>

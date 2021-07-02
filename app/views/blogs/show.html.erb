@@ -1,0 +1,23 @@
+<h1>ブログの詳細</h1>
+<div align=right><%= link_to('一覧', blogs_path) %></div>
+<table>
+  <tr>
+    <th><%= Blog.human_attribute_name(:id) %></th>
+    <td><%= @blog.id %></td>
+  </tr>
+  <tr>
+    <th><%= Blog.human_attribute_name(:title) %></th>
+    <td><%= @blog.title %></td>
+  </tr>
+  <tr>
+    <th><%= Blog.human_attribute_name(:article) %></th>
+    <td><%= simple_format(h(@blog.article), {}, sanitize: false, wrapper_tag: "div") %></td>
+  </tr>
+  <tr>
+    <th><%= Blog.human_attribute_name(:created_at) %></th>
+    <td><%= @blog.created_at %></td>
+</table>
+
+<%= link_to('編集', edit_blog_path) %>
+<%= link_to('削除', @blog, method: :delete, data: { confirm: "ブログ「#{@blog.title}」を削除します。よろしいですか？" }) %>
+<p>Find me in app/views/blogs/show.html.erb</p>
